@@ -1,2 +1,34 @@
-# Ignore .vscode files
+# Editor and IDE state
 .vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual C++ IntelliSense databases and precompiled data
+*.sdf
+*.VC.db
+*.VC.opendb
+*.ipch
+ipch/
+
+# Visual Studio build output directories
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+# Compiler and linker intermediate files
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.iobj
+*.ipdb
+*.tlog
+*.lastbuildstate
+*.recipe
+*.dt.*.json

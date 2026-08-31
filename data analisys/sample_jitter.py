@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_path = 'C:\\Users\\gabri\\Desktop\\BCI\\epoceeg-master\\study_nowait_device_latency_3.csv'
+file_path = 'C:\\Users\\gabri\\Desktop\\pf-anregung\\data analisys\\studies\\device latency nowait\\study_nowait_device_latency_3.csv'
 
 # Read timestamps from the CSV file
 df = pd.read_csv(file_path, header=None, usecols=[0], names=['timestamp'])
@@ -24,7 +24,7 @@ mean_diff = df['difference'].mean()
 std_diff = df['difference'].std()
 
 # Plot the data without error bars, using a lighter shade of blue
-plt.plot(df.index, df['difference'], '-o', color='skyblue')
+plt.plot(df.index, df['difference'], color='skyblue')
 
 # Set the plot title and labels
 plt.title('Sample-to-Sample Time', fontsize=16)
@@ -34,8 +34,13 @@ plt.ylabel('Time Difference (ms)', fontsize=14)
 # Display the mean and standard deviation on the plot in a box at the bottom left
 textstr = f'Mean: {mean_diff:.2f} ms\nSTD: {std_diff:.2f} ms'
 props = dict(boxstyle='round', facecolor='white', alpha=0.5)
-plt.text(0.05, 0.05, textstr, transform=plt.gca().transAxes, fontsize=10,
-         verticalalignment='bottom', bbox=props)
+
+# plt.text(0.05, 0.05, textstr, transform=plt.gca().transAxes, fontsize=10,
+#          verticalalignment='bottom', bbox=props)
+
+plt.text(0.98, 0.97, textstr, transform=plt.gca().transAxes, fontsize=10, ha='right', 
+         verticalalignment='top', bbox=props)
+
 
 # Set the x-axis limits to show the sample range from 0 to 300
 plt.xlim(0, 300)
@@ -48,3 +53,4 @@ plt.savefig('SampleToSample.png', dpi=300, bbox_inches='tight')
 
 # Show the plot
 plt.show()
+
