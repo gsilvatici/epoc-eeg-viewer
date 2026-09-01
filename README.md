@@ -67,6 +67,46 @@ function output = loadepoceegrawbyfile(fullfile, dowemean)
     end
 end
 
+```
+
+Data analysis
+=============
+
+The `data analisys/` folder holds the Python scripts that turn the recorded sessions
+into the figures of the report. The recordings themselves live in `data analisys/studies/`.
+
+Requirements: Python 3 with `numpy`, `pandas`, `matplotlib` and `scipy`.
+
+```
+pip install numpy pandas matplotlib scipy
+```
+
+**General rule:** run each script from inside `data analisys/`. Each one reads its
+sessions from `studies/` and writes its PNG straight into the report's `02_Images/`.
+
+```
+cd "data analisys"
+python coupling_figure.py
+```
+
+| Script | Figure produced |
+| --- | --- |
+| `sample_jitter.py` | `SampleToSample` |
+| `batch_jitter.py` | `SyncResponseTime` / `SyncResponseTimeSleep` |
+| `batch_jitter_bell.py` | `SyncLatency_Normal_*` |
+| `sync_quantization.py` | `SyncQuantization` |
+| `goertzel_ovelayed.py` | `LatencyOverlayed` |
+| `goertzel_compare.py` | `LatencyCompare`, `LatencyCompareDelay` |
+| `coupling_figure.py` | `CouplingExample`, `CouplingAmplitude` |
+| `wavgen.py`, `wavgen_stereo.py` | the 16 Hz stimulus `.wav` files |
+
+Two exceptions to the rule above:
+
+* `batch_jitter.py` has two modes (with / without pacing), selected by commenting
+  the corresponding input path and `savefig` line.
+* `sync_quantization.py` uses relative paths and writes its PNG to the current
+  directory, so it must be run from `data analisys/` and the figure copied by hand.
+
 Authors
 =======
 Gabriel Silvatici
